@@ -1,8 +1,8 @@
 
-# Udacity DRL Continuous Control Project Report
+# Udacity DRL collaboration And Competition Project Report
 
 ### Algorithm Overview
-The agent model is based on the Deep Deterministic Policy Gradients (DDPG) algorithm, which leverages the Actor-Critic networks. The Actor network is used to calculate the action based on the current state. The Critic network is used to predict the Q-value, i.e. the value of the current (state, action). The negative of the Q-value is used as a loss measure for training the Actor network. To measure the loss of the Critic network, a "true" or target Q-value is calculated using the Bellman equation, which in pseudocode looks like `Q_targets = rewards + gamma * critic_target(next_states, actions_next)`
+The agent model is based on the Deep Deterministic Policy Gradients (DDPG) algorithm, which leverages the Actor-Critic networks. Both agents share the same Actor and Critic models. Before starting with DDPG I tried several MADDPG implementations with separate Actor-Critic, but found that its learning was slow and instable. In most successful MADDPG implementations the environment could solved with about 3000 episodes. Thus, I decided to switch to DDPG which started showing better progress from the beginning. After tuning hyperparameters the envoronment was solve with N episodes.
 
 The Actor network hyperparameters:
 * Hidden layers: 2
@@ -43,7 +43,7 @@ Environment solved in 125 episodes!	Average Score: 30.07
 
 ### Future Ideas
 To improve the agent's performance the following techniques can be used:
- - reduce learning rates `LR_ACTOR` and `LR_CRITIC`
- - increase the `BATCH_SIZE`
- - increase number of neurons in Actor and Critic networks
- - compare with other algorithms (PPO, A3C, D4PG)
+- examine MADDPG (separate Actor/Critic) and tune hyperparameters
+- change network layers/nodes and choose different hyperparameters
+- try other algorithms like PPO, A3C or D4PG
+- use prioritised experience buffer
