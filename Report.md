@@ -22,7 +22,7 @@ The Critic network hyperparameters:
 * Output layer nodes (Q-value): 1
 * Input parameters (states): 24
 * Activation function: ReLU
-* Batch normalization for input and 1st hidden layers
+* Batch normalization for input and the first hidden layer
 
 ### Training
 The agent model was trained on AWS (P3.2xlarge).
