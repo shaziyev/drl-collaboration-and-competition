@@ -9,16 +9,18 @@ The Actor network hyperparameters:
 * 1st hidden layer nodes (FC): 400
 * 2nd hidden layer nodes (FC): 300
 * Output layer nodes (actions): 4
-* Input parameters (states): 33
+* Input parameters (states): 24
 * Activation function: ReLU (except output - tanh)
+* Batch normalization for input and hidden layers
 
 The Critic network hyperparameters:
 * Hidden layers: 2
 * 1st hidden layer nodes (FC): 400
 * 2nd hidden layer nodes (FC): 300
 * Output layer nodes (Q-value): 1
-* Input parameters (states): 33
+* Input parameters (states): 24
 * Activation function: ReLU
+* Batch normalization for input and 1st hidden layers
 
 ### Training
 The agent model was trained on AWS (P3.2xlarge).
