@@ -2,7 +2,7 @@
 # Udacity DRL Collaboration And Competition Project Report
 
 ### Algorithm Overview
-The agent model is based on the Deep Deterministic Policy Gradients (DDPG) algorithm, which leverages the Actor-Critic networks. Both agents share the same Actor and Critic models. Before starting with DDPG I tried several MADDPG implementations with separate Actor-Critic, but found that its learning was slow and instable. In most successful MADDPG implementations the environment could solved with about 3000 episodes. Thus, I decided to switch to DDPG which started showing better progress from the beginning. After tuning hyperparameters the environment has been solved with N episodes.
+The agent model is based on the Deep Deterministic Policy Gradients (DDPG) algorithm, which leverages the Actor-Critic networks. Both agents share the same Actor and Critic models. Before starting with DDPG I tried several MADDPG implementations with separate Actor-Critic, but found that its learning was slow and instable. In some MADDPG implementations the environment could be solved with about 3000 episodes. Thus, I decided to switch to DDPG which started showing better progress from the beginning. After tuning hyperparameters the environment has been solved with N episodes.
 
 The Actor network hyperparameters:
 * Hidden layers: 2
@@ -34,6 +34,7 @@ The following hyperparameters were used:
 * Learning rate (Actor): 0.001
 * Learning rate (Critic): 0.001
 * L2 weight decay: 0
+* Tau: 0.2
 
 The agent was able to solve the environment (0.50+ average scores) in 240 episodes within 10 minutes:
 
