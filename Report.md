@@ -6,8 +6,9 @@ The agent model is based on the Deep Deterministic Policy Gradients (DDPG) algor
 
 The Actor network hyperparameters:
 * Hidden layers: 2
-* 1st hidden layer nodes (FC): 400
-* 2nd hidden layer nodes (FC): 300
+* 1st hidden layer nodes (FC): 256
+* 2nd hidden layer nodes (FC): 128
+* 3nd hidden layer nodes (FC): 64
 * Output layer nodes (actions): 4
 * Input parameters (states): 24
 * Activation function: ReLU (except output - tanh)
@@ -15,8 +16,9 @@ The Actor network hyperparameters:
 
 The Critic network hyperparameters:
 * Hidden layers: 2
-* 1st hidden layer nodes (FC): 400
-* 2nd hidden layer nodes (FC): 300
+* 1st hidden layer nodes (FC): 256
+* 2nd hidden layer nodes (FC): 128
+* 3nd hidden layer nodes (FC): 64
 * Output layer nodes (Q-value): 1
 * Input parameters (states): 24
 * Activation function: ReLU
@@ -26,19 +28,21 @@ The Critic network hyperparameters:
 The agent model was trained on AWS (P3.2xlarge).
 The following hyperparameters were used:
 * Optimizer: Adam
-* Replay buffer size: 100000
-* Minibatch size: 128
-* Discount factor (Gamma): 0.99
-* Learning rate (Actor): 0.0001
+* Replay buffer size: 50000
+* Minibatch size: 1024
+* Discount factor (Gamma): 0.90
+* Learning rate (Actor): 0.001
 * Learning rate (Critic): 0.001
 * L2 weight decay: 0
 
-The agent was able to solve the environment (30+ scores) in 125 episodes within 32 minutes:
+The agent was able to solve the environment (0.50+ average scores) in 240 episodes within 10 minutes:
 
 ```
-Episode 100	Average Score: 22.50	Score: 33.027
-Episode 125	Average Score: 30.07	Score: 29.316
-Environment solved in 125 episodes!	Average Score: 30.07
+Episode 100	Average Score: 0.01	Score: 0.00
+Episode 200	Average Score: 0.27	Score: 0.90
+Episode 240	Average Score: 0.50	Score: 0.50
+Environment solved in 240 episodes!	Average Score: 0.50
+Agent training time: 10.6 min
 ```
 
 ![Rewards Plot](plot.png)
